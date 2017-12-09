@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Filter Tags</title>
+    </head>
+    <body>
+        <form>
+            <label>Enter your text here</label>
+            <textarea id="text-box"></textarea>
+            <button id="submit-btn" onclick=sendData>Submit</button>
+        </form>
+        <script>
+            function sendData(){
+                var data = document.getElementById("text-box").value;
+                console.log(data);
+                data = {"text" : data};
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "http://0.0.0.0:5000/post/data/");
+                xmlhttp.setRequestHeader("Content-Type", "application/json");
+                xmlhttp.send(JSON.stringify(data));
+            }
+        </script>
+    </body>
+</html>
